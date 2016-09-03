@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+</head>
+<body ng-app="holi" ng-controller="myCtrl">
+Hello world!
+<img src="imagenes/idols.jpg" alt="higurashi" height="300" width="300">
+
+
+<select ng-model="selectedName" ng-options="x for x in names">
+</select>
+<script>
+    var app = angular.module('holi', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.names = ["Eli", "Erika", "Sonozakis"];
+    });
+</script>
+
+<div ng-switch="selectedName">
+    <div ng-switch-when="Eli">
+        <h1>Ayase Eli</h1>
+        <img src="imagenes/Eli.jpg" alt="idols" height="500" width="400">
+    </div>
+    <div ng-switch-when="Erika">
+        <h1>Furudo Erika</h1>
+        <img src="imagenes/erika.jpg" alt="umineko" height="400" width="400">
+    </div>
+    <div ng-switch-when="Sonozakis">
+        <h1>Hermanas Sonozaki</h1>
+        <img src="imagenes/sonozaki.jpg" alt="higurashi" height="300" width="500">
+    </div>
+</div>
+
+<p>Name: <input type="text" ng-model="name"></p>
+<h3>Resultado: {{name}}</h3>
+</body>
+</html>
